@@ -57,7 +57,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.5</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.6</span>
       </footer>
     </div>
   );

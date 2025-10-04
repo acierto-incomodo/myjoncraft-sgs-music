@@ -13,6 +13,6 @@ export const translations = {
     notCompatible: "Not compatible with Etched",
     copy: "Copy link",
     copied: "Link copied!",
-    musicCount: "153 songs",
+    musicCount: "158 songs",
   },
 };
