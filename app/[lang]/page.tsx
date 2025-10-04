@@ -3,21 +3,9 @@ import fs from "fs";
 import path from "path";
 import CopyButton from "../components/CopyButton";
 import LocalizedText from "../components/LocalizedText";
-
-async function getMusicFiles() {
-  const musicDir = path.join(process.cwd(), "public", "music");
-  try {
-    const files = await fs.promises.readdir(musicDir);
-    return files.filter((file) =>
-      /\.(mp3|wav|ogg|m4a)$/i.test(file)
-    );
-  } catch {
-    return [];
-  }
-}
+import musicFiles from "../music-files.json";
 
 export default async function Home({ params }: { params: { lang: string } }) {
-  const musicFiles = await getMusicFiles();
   const lang = (["es", "en"].includes(params.lang) ? params.lang : "en") as "es" | "en";
 
   return (
@@ -66,7 +54,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.1.2</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.0</span>
       </footer>
     </div>
   );
