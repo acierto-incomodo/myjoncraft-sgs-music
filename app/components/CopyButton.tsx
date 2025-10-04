@@ -1,18 +1,16 @@
 "use client";
+import { translations } from "../i18n";
 
 type CopyButtonProps = {
   url: string;
+  lang: "es" | "en";
 };
 
-export default function CopyButton({ url }: CopyButtonProps) {
+export default function CopyButton({ url, lang }: CopyButtonProps) {
   const handleCopy = async () => {
-    // Siempre antepone la URL base de producción
-    const fullUrl = `https://myjoncraft-sgs-music.vercel.app${new URL(
-      url,
-      "https://dummy"
-    ).pathname}`;
+    const fullUrl = `https://myjoncraft-sgs-music.vercel.app${new URL(url, "https://dummy").pathname}`;
     await navigator.clipboard.writeText(fullUrl);
-    alert("¡Enlace copiado!");
+    alert(translations[lang].copied);
   };
 
   return (
@@ -21,7 +19,7 @@ export default function CopyButton({ url }: CopyButtonProps) {
       onClick={handleCopy}
       type="button"
     >
-      Copiar enlace
+      {translations[lang].copy}
     </button>
   );
 }
