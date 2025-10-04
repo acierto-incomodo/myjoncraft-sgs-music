@@ -36,9 +36,14 @@ export default async function Home() {
             <p>No hay archivos de audio en la carpeta <b>music</b>.</p>
           )}
           {musicFiles.map((file) => (
-            <div key={file} className="flex flex-col sm:flex-row items-center gap-3 border p-4 rounded-lg bg-white/70 dark:bg-black/30">
-              <audio controls src={`/music/${file}`} className="w-64" />
-              <span className="font-mono text-xs break-all">{file}</span>
+            <div
+              key={file}
+              className="flex flex-row items-center justify-between border p-4 rounded-lg bg-white/70 dark:bg-black/30 w-full"
+            >
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <audio controls src={`/music/${file}`} className="w-64" />
+                <span className="font-mono text-xs break-all">{file}</span>
+              </div>
               <CopyButton url={`${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/music/${file}`} />
             </div>
           ))}
@@ -92,7 +97,7 @@ export default async function Home() {
           Go to nextjs.org →
         </a>
         */}
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.0.0</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.0.1</span>
       </footer>
     </div>
   );
