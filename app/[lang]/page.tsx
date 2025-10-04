@@ -22,6 +22,9 @@ export default async function Home({ params }: { params: { lang: string } }) {
           <h1 className="text-2xl font-bold mt-4 text-center">
             <LocalizedText tid="title" lang={lang} />
           </h1>
+          <p>
+            <LocalizedText tid="musicCount" lang={lang} />
+          </p>
         </div>
         <div className="flex flex-col gap-6 w-full">
           {musicFiles.length === 0 && (
@@ -54,7 +57,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.4</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.5</span>
       </footer>
     </div>
   );
