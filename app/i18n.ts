@@ -5,7 +5,7 @@ export const translations = {
     notCompatible: "No es compatible con Etched",
     copy: "Copiar enlace",
     copied: "¡Enlace copiado!",
-    musicCount: "153 canciones"
+    musicCount: "191 canciones"
   },
   en: {
     title: "Music player for MyJonCraft SGS Server",
@@ -13,6 +13,6 @@ export const translations = {
     notCompatible: "Not compatible with Etched",
     copy: "Copy link",
     copied: "Link copied!",
-    musicCount: "158 songs",
+    musicCount: "191 songs",
   },
 };
