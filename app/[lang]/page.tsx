@@ -70,7 +70,7 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.3.0</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.3.1</span>
       </footer>
     </div>
   );
