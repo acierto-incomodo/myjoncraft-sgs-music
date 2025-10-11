@@ -6,7 +6,7 @@ export default function LocalizedText({
   lang,
 }: {
   tid: keyof typeof translations["en"];
-  lang: "es" | "en" | "eu";
+  lang: "es" | "en" | "eu" | "ja";
 }) {
   return translations[lang][tid] || translations.en[tid];
 }

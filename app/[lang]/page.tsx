@@ -9,7 +9,7 @@ import React from "react";
 
 export default function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = React.use(params);
-  const lang = (["es", "en", "eu"].includes(rawLang) ? rawLang : "en") as "es" | "en" | "eu";
+  const lang = (["es", "en", "eu", "ja"].includes(rawLang) ? rawLang : "en") as "es" | "en" | "eu" | "ja";
   const [query, setQuery] = useState("");
 
   // Filtra canciones según la búsqueda (case-insensitive)
@@ -32,7 +32,7 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
             <LocalizedText tid="title" lang={lang} />
           </h1>
           <p>
-            <LocalizedText tid="musicCount" lang={lang} />
+            <LocalizedText tid="musicCount" lang={lang} /><LocalizedText tid="version" lang={lang} />
           </p>
         <SearchBar
           onSearch={setQuery}
@@ -70,7 +70,7 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.3.1</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - <LocalizedText tid="version" lang={lang} /></span>
       </footer>
     </div>
   );

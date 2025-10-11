@@ -3,7 +3,7 @@ import { translations } from "../i18n";
 
 type CopyButtonProps = {
   url: string;
-  lang: "es" | "en" | "eu";
+  lang: "es" | "en" | "eu" | "ja";
 };
 
 export default function CopyButton({ url, lang }: CopyButtonProps) {
