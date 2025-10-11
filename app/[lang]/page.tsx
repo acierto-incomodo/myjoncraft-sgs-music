@@ -1,16 +1,25 @@
+"use client";
 import Image from "next/image";
-import fs from "fs";
-import path from "path";
 import CopyButton from "../components/CopyButton";
 import LocalizedText from "../components/LocalizedText";
+import SearchBar from "../components/SearchBar";
 import musicFiles from "../music-files.json";
+import { useState } from "react";
+import React from "react";
 
-export default async function Home({ params }: { params: { lang: string } }) {
-  const lang = (["es", "en"].includes(params.lang) ? params.lang : "en") as "es" | "en";
+export default function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = React.use(params);
+  const lang = (["es", "en", "eu"].includes(rawLang) ? rawLang : "en") as "es" | "en" | "eu";
+  const [query, setQuery] = useState("");
+
+  // Filtra canciones según la búsqueda (case-insensitive)
+  const filteredFiles = musicFiles.filter((file) =>
+    file.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full">
         <div className="flex flex-col items-center justify-center w-full mb-4">
           <Image
             src="/logo.png"
@@ -25,14 +34,18 @@ export default async function Home({ params }: { params: { lang: string } }) {
           <p>
             <LocalizedText tid="musicCount" lang={lang} />
           </p>
+        <SearchBar
+          onSearch={setQuery}
+          placeholder={require("../i18n").translations[lang].searchPlaceholder}
+        />
         </div>
         <div className="flex flex-col gap-6 w-full">
-          {musicFiles.length === 0 && (
+          {filteredFiles.length === 0 && (
             <p>
               <LocalizedText tid="noFiles" lang={lang} /> <b>music</b>.
             </p>
           )}
-          {musicFiles.map((file) => {
+          {filteredFiles.map((file) => {
             const isCompatible = /\.(mp3|wav|ogg)$/i.test(file);
             return (
               <div
@@ -57,7 +70,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.2.12</span>
+        <span className="text-sm text-gray-600 dark:text-gray-300">StormGamesStudios © 2025 - v1.3.0</span>
       </footer>
     </div>
   );

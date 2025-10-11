@@ -5,7 +5,8 @@ export const translations = {
     notCompatible: "No es compatible con Etched",
     copy: "Copiar enlace",
     copied: "¡Enlace copiado!",
-    musicCount: "191 canciones"
+    musicCount: "202 canciones",
+    searchPlaceholder: "Buscar canción..."
   },
   en: {
     title: "Music player for MyJonCraft SGS Server",
@@ -13,6 +14,16 @@ export const translations = {
     notCompatible: "Not compatible with Etched",
     copy: "Copy link",
     copied: "Link copied!",
-    musicCount: "191 songs",
+    musicCount: "202 songs",
+    searchPlaceholder: "Search song..."
+  },
+  eu: {
+    title: "MyJonCraft SGS Server-entzako musika erreproduzitzailea",
+    noFiles: "Ez dago audio fitxategirik music karpetan.",
+    notCompatible: "Ez da Etched-ekin bateragarria",
+    copy: "Esteka kopiatu",
+    copied: "Esteka kopiatu da!",
+    musicCount: "202 abesti",
+    searchPlaceholder: "Bilatu abestia..."
   },
 };
