@@ -7,9 +7,9 @@ export const translations = {
     notCompatible: "No es compatible con Etched",
     copy: "Copiar enlace",
     copied: "¡Enlace copiado!",
-    musicCount: "202 canciones | 955 MB | ",
+    musicCount: "208 canciones | 966 MB | ",
     searchPlaceholder: "Buscar canción...",
-    version: "v1.3.2"
+    version: "v1.3.3"
   },
   en: {
     title: "Music player for MyJonCraft SGS Server",
@@ -17,9 +17,9 @@ export const translations = {
     notCompatible: "Not compatible with Etched",
     copy: "Copy link",
     copied: "Link copied!",
-    musicCount: "202 songs | 955 MB | ",
+    musicCount: "208 songs | 966 MB | ",
     searchPlaceholder: "Search song...",
-    version: "v1.3.2"
+    version: "v1.3.3"
   },
   eu: {
     title: "MyJonCraft SGS Server-entzako musika erreproduzitzailea",
@@ -27,9 +27,9 @@ export const translations = {
     notCompatible: "Ez da Etched-ekin bateragarria",
     copy: "Esteka kopiatu",
     copied: "Esteka kopiatu da!",
-    musicCount: "202 abesti | 955 MB | ",
+    musicCount: "208 abesti | 966 MB | ",
     searchPlaceholder: "Bilatu abestia...",
-    version: "v1.3.2"
+    version: "v1.3.3"
   },
    ja: {
     title: "MyJonCraft SGSサーバー用の音楽プレーヤー",
@@ -37,8 +37,8 @@ export const translations = {
     notCompatible: "Etchedと互換性がありません",
     copy: "リンクをコピー",
     copied: "リンクがコピーされました！",
-    musicCount: "202曲 | 955 MB | ",
+    musicCount: "208曲 | 966 MB | ",
     searchPlaceholder: "曲を検索...",
-    version: "v1.3.2"
+    version: "v1.3.3"
   }
 };
