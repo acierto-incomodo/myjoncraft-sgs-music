@@ -9,7 +9,7 @@ export const translations = {
     copied: "¡Enlace copiado!",
     musicCount: "208 canciones | 966 MB | ",
     searchPlaceholder: "Buscar canción...",
-    version: "v1.3.3"
+    version: "v1.3.4"
   },
   en: {
     title: "Music player for MyJonCraft SGS Server",
@@ -19,7 +19,7 @@ export const translations = {
     copied: "Link copied!",
     musicCount: "208 songs | 966 MB | ",
     searchPlaceholder: "Search song...",
-    version: "v1.3.3"
+    version: "v1.3.4"
   },
   eu: {
     title: "MyJonCraft SGS Server-entzako musika erreproduzitzailea",
@@ -29,7 +29,7 @@ export const translations = {
     copied: "Esteka kopiatu da!",
     musicCount: "208 abesti | 966 MB | ",
     searchPlaceholder: "Bilatu abestia...",
-    version: "v1.3.3"
+    version: "v1.3.4"
   },
    ja: {
     title: "MyJonCraft SGSサーバー用の音楽プレーヤー",
@@ -39,6 +39,6 @@ export const translations = {
     copied: "リンクがコピーされました！",
     musicCount: "208曲 | 966 MB | ",
     searchPlaceholder: "曲を検索...",
-    version: "v1.3.3"
+    version: "v1.3.4"
   }
 };
