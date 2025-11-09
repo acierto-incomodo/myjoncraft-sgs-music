@@ -1,5 +1,6 @@
 import os
 import json
+import urllib.parse
 
 # Ruta de la carpeta con la música (local)
 music_folder = "music"
@@ -13,8 +14,11 @@ files = sorted(
 # Diccionario "1": "cancion1", "2": "cancion2" (sin extensión)
 music_dict = {str(i + 1): os.path.splitext(fname)[0] for i, fname in enumerate(files)}
 
-# Diccionario "1": "music/nombre.ext"
-directory_dict = {str(i + 1): os.path.join("music", fname) for i, fname in enumerate(files)}
+# Diccionario "1": "music/nombre.ext" con espacios convertidos a %20
+directory_dict = {
+    str(i + 1): os.path.join("music", urllib.parse.quote(fname)) 
+    for i, fname in enumerate(files)
+}
 
 # Crear los archivos JSON en la misma raíz del script
 with open("music-files.json", "w", encoding="utf-8") as f:
