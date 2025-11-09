@@ -3,7 +3,8 @@ import Image from "next/image";
 import CopyButton from "../components/CopyButton";
 import LocalizedText from "../components/LocalizedText";
 import SearchBar from "../components/SearchBar";
-import musicFiles from "../music-files.json";
+import musicFilesJson from "../music-files.json";
+import musicDirectoryJson from "../music-directory.json";
 import { useState } from "react";
 import React from "react";
 
@@ -12,9 +13,18 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
   const lang = (["es", "en", "eu", "ja"].includes(rawLang) ? rawLang : "en") as "es" | "en" | "eu" | "ja";
   const [query, setQuery] = useState("");
 
-  // Filtra canciones según la búsqueda (case-insensitive)
-  const filteredFiles = musicFiles.filter((file) =>
-    file.toLowerCase().includes(query.toLowerCase())
+  // Construir lista ordenada de canciones con id, nombre (sin extensión) y url (con extensión)
+  const entries = Object.keys(musicFilesJson)
+    .sort((a, b) => Number(a) - Number(b))
+    .map((id) => ({
+      id,
+      name: musicFilesJson[id],
+      url: musicDirectoryJson[id],
+    }));
+
+  // Filtra canciones según la búsqueda (case-insensitive) usando el nombre mostrado
+  const filteredEntries = entries.filter((e) =>
+    e.name.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
@@ -40,21 +50,23 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
         />
         </div>
         <div className="flex flex-col gap-6 w-full">
-          {filteredFiles.length === 0 && (
+          {filteredEntries.length === 0 && (
             <p>
               <LocalizedText tid="noFiles" lang={lang} /> <b>music</b>.
             </p>
           )}
-          {filteredFiles.map((file) => {
-            const isCompatible = /\.(mp3|wav|ogg)$/i.test(file);
+          {filteredEntries.map((entry) => {
+            const isCompatible = /\.(mp3|wav|ogg)$/i.test(entry.url || "");
             return (
               <div
-                key={file}
+                key={entry.id}
                 className="flex flex-col sm:flex-row items-center justify-between border p-4 rounded-lg bg-white/70 dark:bg-black/30 w-full max-w-3xl mx-auto"
               >
                 <div className="flex flex-col items-center w-full gap-2 sm:flex-row sm:items-center sm:gap-3">
-                  <audio controls src={`/music/${file}`} className="w-full sm:w-64" />
-                  <span className="font-mono text-xs break-all text-center sm:text-left w-full sm:w-auto">{file}</span>
+                  <audio controls src={entry.url} className="w-full sm:w-64" />
+                  <span className="font-mono text-xs break-all text-center sm:text-left w-full sm:w-auto">
+                    {entry.id}: {entry.name}
+                  </span>
                   {!isCompatible && (
                     <span className="text-xs text-red-600 ml-2">
                       <LocalizedText tid="notCompatible" lang={lang} />
@@ -62,7 +74,7 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
                   )}
                 </div>
                 <div className="w-full flex justify-center mt-3 sm:mt-0 sm:w-auto sm:justify-end">
-                  <CopyButton url={`/music/${file}`} lang={lang} />
+                  <CopyButton url={entry.url} lang={lang} />
                 </div>
               </div>
             );

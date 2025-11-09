@@ -1,0 +1,8 @@
+myjoncraft-sgs-music/
+│
+├─ index.html
+├─ style.css
+├─ script.js
+└─ music/
+   ├─ 2002 - Anne-Marie.mp3
+   └─ ...otros mp3
