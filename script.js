@@ -1,5 +1,5 @@
 // URL base de tu repositorio GitHub donde están los archivos
-const githubBaseUrl = "https://github.com/acierto-incomodo/myjoncraft-sgs-music/blob/main/public/music/";
+const githubBaseUrl = "https://acierto-incomodo.github.io/myjoncraft-sgs-music/music/";
 
 Promise.all([
     fetch('music-files.json').then(res => res.json()),
