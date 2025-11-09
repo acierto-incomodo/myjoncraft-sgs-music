@@ -1,6 +1,6 @@
 // Base RAW del repositorio
-const githubRawBaseUrl = "https://acierto-incomodo.github.io/myjoncraft-sgs-music/";
-const version = "v1.3.7";
+const githubRawBaseUrl = "https://acierto-incomodo.github.io/myjoncraft-sgs-music/music";
+const version = "v1.3.8";
 const almacenamiento = "1.0 GB";
 
 // Traducciones
@@ -77,8 +77,8 @@ function renderPage() {
         title.textContent = songs[key];
         songDiv.appendChild(title);
 
-        const fileName = paths[key].split('/').pop();
-        const rawUrl = githubRawBaseUrl + encodeURIComponent(fileName);
+        // Usar directamente la URL del music-directory.json
+        const rawUrl = paths[key];
 
         const audio = document.createElement('audio');
         audio.src = rawUrl;
