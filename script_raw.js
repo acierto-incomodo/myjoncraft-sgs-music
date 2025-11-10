@@ -1,6 +1,6 @@
 // Base RAW del repositorio
 const githubRawBaseUrl = "https://acierto-incomodo.github.io/myjoncraft-sgs-music/music";
-const version = "v1.3.8";
+const version = "v1.3.9";
 const almacenamiento = "1.0 GB";
 
 // Traducciones
@@ -45,6 +45,7 @@ const titleEl = document.getElementById('page-title');
 const infoEl = document.getElementById('info-text');
 const langSelect = document.getElementById('lang-select');
 const langLabel = document.getElementById('lang-label');
+const searchInput = document.getElementById('search-input');
 
 let songs = {};
 let paths = {};
@@ -66,7 +67,12 @@ function renderPage() {
     langLabel.textContent = t.lang;
     musicList.innerHTML = "";
 
-    const keys = Object.keys(songs);
+    const searchTerm = searchInput.value.toLowerCase();
+
+    const keys = Object.keys(songs).filter(key =>
+        songs[key].toLowerCase().includes(searchTerm)
+    );
+
     infoEl.textContent = t.info(keys.length);
 
     for (const key of keys) {
@@ -77,7 +83,6 @@ function renderPage() {
         title.textContent = songs[key];
         songDiv.appendChild(title);
 
-        // Usar directamente la URL del music-directory.json
         const rawUrl = paths[key];
 
         const audio = document.createElement('audio');
@@ -106,3 +111,6 @@ langSelect.addEventListener('change', (e) => {
     currentLang = e.target.value;
     renderPage();
 });
+
+// Filtrar canciones al escribir en el buscador
+searchInput.addEventListener('input', renderPage);
