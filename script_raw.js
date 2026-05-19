@@ -1,6 +1,6 @@
 // Base RAW del repositorio
 const githubRawBaseUrl = "https://acierto-incomodo.github.io/myjoncraft-sgs-music/music";
-const version = "v1.4.13";
+const version = "v1.4.15";
 const almacenamiento = "4,71 GB";
 
 // Traducciones
